@@ -5,6 +5,9 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "noEmitOnError": false
+    "noEmitOnError": false,  // Prevents errors from blocking the build
+    "skipLibCheck": true,    // Skips type checking of declaration files
+    "esModuleInterop": true,
+    "allowJs": true
   }
 }
