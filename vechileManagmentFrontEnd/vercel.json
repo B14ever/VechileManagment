@@ -8,12 +8,6 @@
           "buildCommand": "tsc --noEmitOnError && vite build"
         }
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
     ]
   }
   
