@@ -10,8 +10,8 @@ const useCreate = <T>() => {
     setError(null);
     try {
     
-      const response = await axiosInstance.post<T>('/add', data); 
-    } catch (err) {
+      await axiosInstance.post<T>('/add', data); 
+    } catch (err : any) {
       setError(err.message);
     } finally {
       setLoading(false);

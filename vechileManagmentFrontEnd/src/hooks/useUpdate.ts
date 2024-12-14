@@ -11,7 +11,7 @@ const useUpdate = <T>() => {
     try {
       console.log(data)
       await axiosInstance.put<T>(`/edit/${id}`, data);
-    } catch (err) {
+    } catch (err : any) {
       setError(err.message);
     } finally {
       setLoading(false);

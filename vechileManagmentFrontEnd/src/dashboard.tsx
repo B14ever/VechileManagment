@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Button, Divider, Layout, Table, Tag, message, Modal, DatePicker, Select } from 'antd';
+import { Breadcrumb, Button, Divider, Layout, Table, Tag, message, Modal, DatePicker} from 'antd';
 import { InfoCircleOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { ColumnType } from 'antd/es/table';
 import FormComponent from './component/form';
@@ -7,7 +7,7 @@ import useFetchData from './hooks/useFetchData';
 import useCreate from './hooks/useCreate';
 import useUpdate from './hooks/useUpdate';
 import useDelete from './hooks/useDelete';
-import dayjs from 'dayjs';
+
 
 interface Vehicle {
   _id: string;
@@ -81,6 +81,7 @@ const Dashboard: React.FC = () => {
       message.success('Vehicle deleted successfully!');
       await fetchData(); 
     } catch (error) {
+      console.log(error)
       message.error('An error occurred while deleting the vehicle.');
     } finally {
       setDeleteModalVisible(false);
@@ -101,6 +102,7 @@ const Dashboard: React.FC = () => {
       setOpenModal(false);
       await fetchData();
     } catch (error) {
+      console.log(error)
       message.error('An error occurred while saving the vehicle.');
     }
   };
