@@ -154,10 +154,10 @@ const Dashboard: React.FC = () => {
         <DatePicker
           style={{ margin: '8px' }}
           format="YYYY-MM-DD"
-          onChange={(date, dateString) => handleFilterChange(dateString, 'createdAt')}
+          onChange={(dateString) => handleFilterChange(dateString, 'createdAt')}
         />
       ),
-      onFilter: (value, record) => record.createdAt.includes(value),
+      onFilter: (value : any, record) => record.createdAt.includes(value),
     },
     {
       title: 'Updated At',
@@ -173,10 +173,10 @@ const Dashboard: React.FC = () => {
         <DatePicker
           style={{ margin: '8px' }}
           format="YYYY-MM-DD"
-          onChange={(date, dateString) => handleFilterChange(dateString, 'updatedAt')}
+          onChange={(dateString) => handleFilterChange(dateString, 'updatedAt')}
         />
       ),
-      onFilter: (value, record) => record.updatedAt.includes(value),
+      onFilter: (value :any, record) => record.updatedAt.includes(value),
     },
     {
       title: 'Fuel Type',
@@ -188,7 +188,7 @@ const Dashboard: React.FC = () => {
         { text: 'Electric', value: 'Electric' },
         // Add more fuel types if needed
       ],
-      onFilter: (value, record) => record.fuelType.toLowerCase().includes(value.toLowerCase()),
+      onFilter: (value :any, record) => record.fuelType.toLowerCase().includes(value.toLowerCase()),
     },
     { title: 'Year', dataIndex: 'year', key: 'year' },
     { title: 'VIN', dataIndex: 'vin', key: 'vin' },
@@ -236,20 +236,20 @@ const Dashboard: React.FC = () => {
         <Breadcrumb.Item>View</Breadcrumb.Item>
       </Breadcrumb>
       <div style={{ overflowX: 'auto' }}>
-        <Table
-          columns={columns}
-          dataSource={data?.data}
-          loading={loading}
-          rowKey="_id"
-          pagination={{
-            pageSize: 10,
-            total: data?.totalCount,
-            current: data?.currentPage,
-            pageSizeOptions: ['10', '20', '30'],
-          }}
-          scroll={{ x: 'max-content' }}
-          filteredValue={filters} 
-        />
+      <Table
+        columns={columns}
+        dataSource={data?.data}
+        loading={loading}
+        rowKey="_id"
+        pagination={{
+          pageSize: 10,
+          total: data?.totalCount,
+          current: data?.currentPage,
+          pageSizeOptions: ['10', '20', '30'],
+        }}
+        scroll={{ x: 'max-content' }}
+      />
+
       </div>
       <FormComponent
         openModal={openModal}
